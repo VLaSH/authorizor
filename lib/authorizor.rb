@@ -1,0 +1,1 @@
+require 'authorizor/loader'
