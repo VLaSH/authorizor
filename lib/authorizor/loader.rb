@@ -1,9 +1,11 @@
+require 'authorizor/checker'
+
 module Authorizor
   class Loader
-    def load
+    def load_gem
       Dir[Rails.root.join('app/authorizers/**/*.rb')].each do |path|
         @current_authorizer_path = path
-        unless controller.const_defined?(authorizer.name)
+        unless controller.included_modules.include?(authorizer.name)
           @controller.include(authorizer)
         end
       end
