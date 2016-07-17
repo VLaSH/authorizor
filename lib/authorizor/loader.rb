@@ -1,6 +1,7 @@
 require 'authorizor/checker'
 
 module Authorizor
+  # Loads constants from 'authorizers' folder and includes them to corresponding controllers
   class Loader
     def load_gem
       Dir[Rails.root.join('app/authorizers/**/*.rb')].each do |path|
